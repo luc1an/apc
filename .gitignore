@@ -3,3 +3,14 @@
 ################################################################################
 
 /.vs/Amazon Price Check
+/apc.api.core/bin/Debug/netcoreapp3.0
+/apc.api.core/obj
+/apc.api.domain/bin/Release
+/apc.api.domain/obj
+/apc.businesslayer.core/bin/Debug/netcoreapp3.0
+/apc.businesslayer.core/obj
+/apc.api.domain
+/api.apc
+/blah.amazon
+/goodsite
+/packages

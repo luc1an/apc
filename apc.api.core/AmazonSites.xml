@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sites>
+
+	<site>
+		<url value="http://www.amazon.fr/product/dp/{0}/" name="France" vat="20"></url>
+	</site>
+  <site>
+    <url value="http://www.amazon.com.au/product/dp/{0}/" name="Australia" vat="10"></url>
+  </site>
+  <site>
+    <url value="http://www.amazon.com/xxxxx/dp/{0}/" name="USA" vat="0"></url>
+  </site>
+  <site>
+    <url value="http://www.amazon.co.uk/product/dp/{0}/" name="UK" vat="20"></url>
+  </site>
+  <site>
+    <url value="http://www.amazon.it/product/dp/{0}/" name="Italy" vat="22"></url>
+  </site>
+  <site>
+    <url value="http://www.amazon.es/product/dp/{0}/" name="Spain" vat="21"></url>
+  </site>
+  <site>
+    <url value="http://www.amazon.de/product/dp/{0}/" name="Germany" vat="19"></url>
+  </site>
+  <site>
+    <url value="http://www.amazon.ca/product/dp/{0}/" name="Canada" vat="0"></url>
+  </site>
+	<!--<site>
+		<url value="http://www.amazon.co.jp/product/dp/{0}/" name="Japan" vat="8"></url>
+	</site>-->
+  <!--site>
+		<url value="http://www.amazon.cn/product/dp/{0}/" name="China"></url>
+	</site-->
+</sites> 
