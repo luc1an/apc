@@ -11,6 +11,8 @@ namespace apc.api.core
 {
     public class Program
     {
+        private const string Urls = "http://0.0.0.0:5003";
+
         public static void Main(string[] args)
         {
             CreateHostBuilder(args).Build().Run();
@@ -20,7 +22,8 @@ namespace apc.api.core
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseUrls("http://0.0.0.0:5003").UseStartup<Startup>();
+                    webBuilder.UseUrls(Urls)
+                              .UseStartup<Startup>();
                 });
     }
 }
