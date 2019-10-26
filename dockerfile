@@ -13,11 +13,10 @@ COPY apc.api.core/. ./apc.api.core/
 COPY apc.businesslayer.core/. ./apc.businesslayer.core/
 WORKDIR /app/apc.api.core
 #
-RUN dotnet publish -c Release -o out
+RUN dotnet publish -c Release -o out -r linux-x64
 
 
-FROM mcr.microsoft.com/dotnet/core/runtime:3.0 
+FROM mcr.microsoft.com/dotnet/core/aspnet:3.0 
 WORKDIR /app
-RUN dir
 COPY --from=build-env /app/apc.api.core/out ./out
-ENTRYPOINT ["dotnet", "apc.api.core.dll"]
+ENTRYPOINT ["dotnet", "/app/out/apc.api.core.dll"]
