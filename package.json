@@ -1,0 +1,19 @@
+{
+  "name": "apc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "apc.api.core.dll",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luc1an/apc.git"
+  },
+  "author": "luc1an",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/luc1an/apc/issues"
+  },
+  "homepage": "https://github.com/luc1an/apc#readme"
+}

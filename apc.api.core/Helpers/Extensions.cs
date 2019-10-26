@@ -1,8 +1,5 @@
-﻿using System.Threading.Tasks;
-
-using apc.businesslayer.core;
+﻿using apc.businesslayer.core;
 using apc.businesslayer.core.models;
-using RestSharp;
 
 namespace apc.api.core.Helpers
 {
