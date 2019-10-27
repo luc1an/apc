@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using System;
+using System.Text.RegularExpressions;
 using System.Web;
 
 namespace apc.businesslayer.core.models
@@ -13,7 +14,7 @@ namespace apc.businesslayer.core.models
 
             var originalRegex = "/([a-zA-Z0-9]{10})(?:[/?]|$)";
             var reg2 = new Regex(originalRegex);
-            var m1 = reg2.Match(encodedLink);
+            var m1 = reg2.Match(encodedLink ?? throw new InvalidOperationException());
             if (m1.Success)
             {
                 return m1.Groups[1].Value;

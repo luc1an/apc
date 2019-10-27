@@ -60,7 +60,7 @@ namespace apc.api.core.Controllers
             }
             catch (Exception ex)
             {
-               if (ex!=null) Console.Write(ex.Message);
+                Console.Write(ex.Message);
             }
             return null;
         }
@@ -125,7 +125,7 @@ namespace apc.api.core.Controllers
 
         [HttpPost]
         [Route("exchangelist")]
-        public List<CurrencyExchangeModel> XCH([FromBody]CurrencyModel model)
+        public List<CurrencyExchangeModel> Exchange([FromBody]CurrencyModel model)
         {
             
             // RON // USD 

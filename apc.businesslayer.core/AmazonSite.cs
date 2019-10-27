@@ -25,9 +25,9 @@ namespace apc.businesslayer.core
         public string Url { get; set; }
         public string Name { get; set; }
         public decimal Price { get; set; }
-        public decimal VAT { get; set; }
+        public decimal Vat { get; set; }
         public decimal Netto { get; set; }
-        public decimal VATAmount { get; set; }
+        public decimal VatAmount { get; set; }
         public string MoneyAmt => MoneyValue.ToString(CultureInfo.InvariantCulture);
         private decimal _moneyValue;
         public decimal MoneyValue
@@ -38,8 +38,8 @@ namespace apc.businesslayer.core
                 _moneyValue = value;
                 // this is the final price
                 // the VAT is... 
-                Netto =  Math.Round(_moneyValue / (1 + (VAT / 100)), 2) ; // with 2 digits!
-                VATAmount = _moneyValue - Netto;
+                Netto =  Math.Round(_moneyValue / (1 + (Vat / 100)), 2) ; // with 2 digits!
+                VatAmount = _moneyValue - Netto;
             } 
         }
         public string Currency { get; set; }
@@ -52,9 +52,9 @@ namespace apc.businesslayer.core
         {
             price = price.Trim();
             //EUR 36,99 - EUR 98,40
-            if (price.IndexOf("-") > 0)
+            if (price.IndexOf("-", StringComparison.Ordinal) > 0)
             {
-                price = price.Substring(0, price.IndexOf("-")).Trim();
+                price = price.Substring(0, price.IndexOf("-", StringComparison.Ordinal)).Trim();
             }
             string[] t = price.Split(' ');
             if (t.Length == 1)
@@ -73,7 +73,7 @@ namespace apc.businesslayer.core
                     else
                         if (price.Contains("£"))
                     {
-                        t = new[] { "£", price.Substring(price.IndexOf("£") + 1) };
+                        t = new[] { "£", price.Substring(price.IndexOf("£", StringComparison.Ordinal) + 1) };
                     }
                     else
                         t = new[] { "XX", price };
@@ -196,28 +196,10 @@ namespace apc.businesslayer.core
             }
         }
 
-        private static Random _rnd;
-
-        private static string RandomUserAgent
-        {
-            get
-            {
-                if (_rnd == null)
-                {
-
-                    _rnd = new Random(1);
-                }
-                int uac = UserAgents.Count;
-                int rndr = _rnd.Next(uac);
-                return UserAgents[rndr];
-            }
-        }
-
 
         public static List<AmazonSite> GetList(string rootPath=null)
         {
-            string appDataPath = null;
-            appDataPath = rootPath;
+            var appDataPath = rootPath;
             
             if (appDataPath == null) return null;
             string file = Path.Combine(appDataPath, "AmazonSites.xml");
@@ -231,9 +213,9 @@ namespace apc.businesslayer.core
                     item =>
                         new AmazonSite
                         {
-                            Name = item.Attribute("name").Value,
-                            Url = item.Attribute("value").Value,
-                            VAT = Convert.ToDecimal(item.Attribute("vat").Value),
+                            Name = item.Attribute("name")?.Value,
+                            Url = item.Attribute("value")?.Value,
+                            Vat = Convert.ToDecimal(item.Attribute("vat")?.Value),
                             Valid = true
                         }).ToList();
         }
@@ -371,7 +353,7 @@ namespace apc.businesslayer.core
             // debug only
             const bool forceNonParallel = false;
 
-            var options = new ParallelOptions { MaxDegreeOfParallelism = forceNonParallel ? Environment.ProcessorCount : -1 };
+            var dummy = new ParallelOptions { MaxDegreeOfParallelism = forceNonParallel ? Environment.ProcessorCount : -1 };
             Console.WriteLine("{options.MaxDegreeOfParallelism} number of parallel calls");
             //debug only
             //foreach (var site in sites)

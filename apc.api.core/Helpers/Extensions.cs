@@ -5,9 +5,7 @@ namespace apc.api.core.Helpers
 {
     public static class MyExtensions
     {
-       
-
-        public static AmazonPriceModel ToPriceModel(this AmazonSite prc)
+       public static AmazonPriceModel ToPriceModel(this AmazonSite prc)
         {
             var price = new AmazonPriceModel
             {
@@ -21,8 +19,8 @@ namespace apc.api.core.Helpers
                 MoneyValue = prc.MoneyValue,
                 MoneyAmt = prc.MoneyAmt,
                 
-                Vat = prc.VAT,
-                VatAmount = prc.VATAmount
+                Vat = prc.Vat,
+                VatAmount = prc.VatAmount
             };
             return price;
         }
