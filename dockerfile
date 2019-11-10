@@ -19,4 +19,6 @@ RUN dotnet publish -c Release -o out -r linux-x64
 FROM mcr.microsoft.com/dotnet/core/aspnet:3.0 
 WORKDIR /app
 COPY --from=build-env /app/apc.api.core/out ./out
+ENV ASPNETCORE_URLS=http://+:8080
+EXPOSE 8080/tcp
 ENTRYPOINT ["dotnet", "/app/out/apc.api.core.dll"]
