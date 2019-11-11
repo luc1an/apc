@@ -22,5 +22,6 @@ WORKDIR /app
 COPY --from=build-env /app/apc.api.core/out ./out
 COPY --from=build-env /app/apc.api.core/AmazonSites.xml ./
 ENV ASPNETCORE_URLS=http://+:8080
+#
 EXPOSE 8080/tcp
 ENTRYPOINT ["dotnet", "/app/out/apc.api.core.dll"]
