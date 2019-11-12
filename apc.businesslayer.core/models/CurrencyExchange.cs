@@ -1,4 +1,4 @@
-﻿namespace apc.businesslayer.core.models
+﻿namespace apc.bussinesslayer.core.models
 {
     public class CurrencyExchangeModel
     {

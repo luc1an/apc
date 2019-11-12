@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 
-using apc.businesslayer.core;
+using apc.bussinesslayer.core;
 using apc.api.core.Helpers;
-using apc.businesslayer.core.models;
+using apc.bussinesslayer.core.models;
 using Microsoft.AspNetCore.Hosting;
 using RestSharp;
 
@@ -39,7 +39,7 @@ namespace apc.api.core.Controllers
             try
             {
                 var webRoot = _env.ContentRootPath;
-                var amazonPrices = AmazonSite.GetPrice(asin, webRoot).Select(c=>c.ToPriceModel()).ToList();
+                var amazonPrices = Site.GetPrices(asin, webRoot).Select(c=>c.ToPriceModel()).ToList();
                 // get the currencies, then the exchange.
                 var distinctCurrencies = amazonPrices.Select(c => c.Currency).Distinct();
                 // ok, i have the currency list. what's the exchange rate for each one ?

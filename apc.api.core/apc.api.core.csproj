@@ -32,7 +32,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\apc.businesslayer.core\apc.businesslayer.core.csproj" />
+    <ProjectReference Include="..\apc.businesslayer.core\apc.bussinesslayer.core.csproj" />
   </ItemGroup>
 
 </Project>

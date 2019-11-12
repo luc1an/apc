@@ -1,11 +1,11 @@
-﻿namespace apc.businesslayer.core.models
+﻿namespace apc.bussinesslayer.core.models
 {
     public class AmazonPriceModel
     {
         public bool Valid { get; set; }
         public string ProductName { get; set; }
         public string ProductLink { get; set; }
-        public string Name { get; set; }
+        public string SiteName { get; set; }
         public decimal PriceInRequestedCurrency { get; set; }
         public decimal VatAmountInRequestedCurrency { get; set; }
         public decimal NetPriceInRequestedCurrency { get; set; }
