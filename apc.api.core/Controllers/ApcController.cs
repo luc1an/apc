@@ -17,20 +17,14 @@ namespace apc.api.core.Controllers
     {
         [HttpGet]
         [Route("[action]")]
-        public string Asin(string link)
-        {
-            return new AsinModel { Code = AsinModel.Detect(link) }.Code;
-        }
-
+        public string Asin(string link) => Helper.Detect(link);
 
         private IWebHostEnvironment _env;
         
         public  ApcController (IWebHostEnvironment env)
         {
             _env = env;
-
         }
-
 
         [HttpGet]
         [Route("{asin}/{currency}/[action]")]
@@ -55,7 +49,6 @@ namespace apc.api.core.Controllers
                         price.NetPriceInRequestedCurrency = Math.Round(price.NetPrice * (decimal) xch.Value, 2);
                     }
                 }
-
                 return amazonPrices.OrderBy(c=>c.NetPriceInRequestedCurrency);
             }
             catch (Exception ex)
